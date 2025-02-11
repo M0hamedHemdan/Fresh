@@ -95,18 +95,13 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    {/* {datas.length > 0 ?<Link
+                    {datas.length > 0 ?<Link
                       className="text-slate-600 hover:text-gray-950"
                       to="allorders"
                     >
                       AllOrder
-                    </Link>: ""} */}
-                    <Link
-                      className="text-slate-600 hover:text-gray-950"
-                      to="allorders"
-                    >
-                      AllOrder
-                    </Link>
+                    </Link>: ""}
+                    
                   </li>
                 </ul>
               </>

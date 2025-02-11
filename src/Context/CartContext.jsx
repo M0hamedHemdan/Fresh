@@ -138,7 +138,20 @@ export default function CartContextProvider(props) {
     retry: 2,
   });
   
-  // console.log(data);
+  let userId = data?.data?.decoded?.id;
+
+  async function getUserOrders(Id) {
+    await axios
+      .get(`https://ecommerce.routemisr.com/api/v1/orders/user/${Id}`)
+      .then((res) => setData(res.data))
+      .catch((err) => err);
+  }
+
+  useEffect(() => {
+    if (userId) {
+      getUserOrders(userId);
+    }
+  }, [userId]);
 
   
   

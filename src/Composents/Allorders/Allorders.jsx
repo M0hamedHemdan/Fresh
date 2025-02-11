@@ -6,21 +6,21 @@ import { Link } from "react-router-dom";
 export default function Allorders() {
   const { data,datas,setData } = useContext(CartContext);
   // const [datas, setData] = useState([]);
-  let userId = data?.data?.decoded?.id;
+  // let userId = data?.data?.decoded?.id;
 
-  async function getUserOrders(Id) {
-    await axios
-      .get(`https://ecommerce.routemisr.com/api/v1/orders/user/${Id}`)
-      .then((res) => setData(res.data))
-      .catch((err) => err);
-  }
+  // async function getUserOrders(Id) {
+  //   await axios
+  //     .get(`https://ecommerce.routemisr.com/api/v1/orders/user/${Id}`)
+  //     .then((res) => setData(res.data))
+  //     .catch((err) => err);
+  // }
 
-  useEffect(() => {
-    if (userId) {
-      getUserOrders(userId);
-    }
-  }, [userId]);
-  console.log(datas);
+  // useEffect(() => {
+  //   if (userId) {
+  //     getUserOrders(userId);
+  //   }
+  // }, [userId]);
+  // console.log(datas);
 
   return (
     <>

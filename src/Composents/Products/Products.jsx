@@ -7,12 +7,29 @@ import { useContext, useState } from "react";
 
 export default function Products() {
   const { data, error, isError, isLoading } = useProducts();
-  const { posteWishlist ,DeleteWishList } = useContext(CartContext);
+  const [loading, setloading] = useState(false);
+  const [currentId, setcurrentId] = useState(0);
+  const { posteWishlist ,DeleteWishList,addProductToCard,setnumberItems,numberItems } = useContext(CartContext);
   const [text , setText] = useState("");
   const handleChange = (event) => {
     setText(event.target.value.toLowerCase())
    
     
+  }
+
+  async function addToCart(id) {
+    setcurrentId(id);
+    setloading(true);
+    const response = await addProductToCard(id);
+    if (response.data.status == "success") {
+      setnumberItems(numberItems + 1);
+      // console.log(response.data.status );
+      toast.success(response.data.message);
+      setloading(false);
+    } else {
+      toast.error(response.data.message);
+      setloading(false);
+    }
   }
 
   const [wishlist, setWishlist] = useState(
@@ -101,7 +118,16 @@ export default function Products() {
                   }`}
                 />
               </button>
-              <button className="btn">Add To Cart</button>
+              <button
+                onClick={() => addToCart(product.id)}
+                className="btn bg-emerald-700 w-full"
+              >
+                {loading && currentId === product.id ? (
+                  <i className="fas fa-spinner fa-spin"></i>
+                ) : (
+                  "Add To Cart"
+                )}
+              </button>
             </div>
           </div>
         ))}
