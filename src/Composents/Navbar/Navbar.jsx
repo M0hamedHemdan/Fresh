@@ -7,7 +7,7 @@ import { CartContext } from "../../Context/CartContext";
 
 export default function Navbar() {
   const { datas } = useContext(CartContext);
-  
+
   const { userLogin, setuserLogin } = useContext(UserContext);
   const { numberItems } = useContext(CartContext);
   const [clas, setClass] = useState("hidden");
@@ -95,13 +95,16 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    {datas.length > 0 ?<Link
-                      className="text-slate-600 hover:text-gray-950"
-                      to="allorders"
-                    >
-                      AllOrder
-                    </Link>: ""}
-                    
+                    {datas.length > 0 ? (
+                      <Link
+                        className="text-slate-600 hover:text-gray-950"
+                        to="allorders"
+                      >
+                        AllOrder
+                      </Link>
+                    ) : (
+                      ""
+                    )}
                   </li>
                 </ul>
               </>
@@ -118,6 +121,7 @@ export default function Navbar() {
 
             <ul className="flex gap-4">
               {userLogin !== null ? (
+                <>
                 <li>
                   <span
                     onClick={signout}
@@ -127,6 +131,16 @@ export default function Navbar() {
                     Signout
                   </span>
                 </li>
+
+                <li>
+              <span
+                onClick={() => clickNav()}
+                className="cursor-pointer md:hidden"
+              >
+                <i className="fa-solid fa-bars text-xl hover:text-green-600 transition"></i>
+              </span>
+            </li>
+                </>
               ) : (
                 <>
                   <li>
@@ -139,14 +153,7 @@ export default function Navbar() {
               )}
             </ul>
 
-            <div>
-              <span
-                onClick={() => clickNav()}
-                className="cursor-pointer md:hidden"
-              >
-                <i className="fa-solid fa-bars text-xl hover:text-green-600 transition"></i>
-              </span>
-            </div>
+            
           </div>
         </div>
         <div className={` text-center  items-center gap-5 ${clas}`}>
@@ -155,7 +162,7 @@ export default function Navbar() {
               <ul className=" ">
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to=""
                   >
                     Home
@@ -163,7 +170,7 @@ export default function Navbar() {
                 </li>
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to="cart"
                   >
                     Cart
@@ -171,7 +178,7 @@ export default function Navbar() {
                 </li>
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to="wishList"
                   >
                     wish list
@@ -179,7 +186,7 @@ export default function Navbar() {
                 </li>
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to="products"
                   >
                     Products
@@ -187,35 +194,51 @@ export default function Navbar() {
                 </li>
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to="categories"
                   >
                     Categories
                   </Link>
                 </li>
+                
                 <li className="bg-green-600 mt-4">
                   <Link
-                    className=" text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" text-lg  block py-1 hover:bg-green-500 text-white"
                     to="brands"
                   >
                     Brands
                   </Link>
                 </li>
+                <li className="bg-green-600 mt-4">
+                  {datas.length > 0 ? (
+                    <Link
+                      className="text-lg  block py-1 hover:bg-green-500 text-white"
+                      to="allorders"
+                    >
+                      AllOrder
+                    </Link>
+                  ) : (
+                    ""
+                  )}
+                </li>
                 <li className="bg-green-600 mt-4 flex justify-around items-center">
-                  <Link to="cart" className="relative">
-                    <i className="fa-solid fa-cart-shopping text-xl "></i>
-                    <span className="bg-green-600 text-white rounded-full w-5 h-5 absolute bottom-5 left-3 text-xs flex justify-center items-center text-center">
-                      {numberItems}{" "}
-                    </span>
-                  </Link>
+                  
                   <span
                     onClick={signout}
-                    className=" cursor-pointer text-xl  block py-3 hover:bg-green-500 text-white"
+                    className=" cursor-pointer text-xl  block py-1 hover:bg-green-500 text-white"
                   >
                     {" "}
                     Signout
                   </span>
                 </li>
+                {/* <li className="bg-green-600 mt-4 flex justify-around items-center">
+                <Link to="cart" className="relative">
+                    <i className="fa-solid fa-cart-shopping text-xl "></i>
+                    <span className="bg-green-600 text-white rounded-full w-5 h-5 absolute bottom-5 left-3 text-xs flex justify-center items-center text-center">
+                      {numberItems}{" "}
+                    </span>
+                  </Link>
+                </li> */}
               </ul>
             </>
           ) : null}
