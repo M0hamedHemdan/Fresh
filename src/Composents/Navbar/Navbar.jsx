@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-slate-300 fixed top-0 left-0 right-0 border-gray-200 z-50">
-        <div className="w-11/12 flex flex-wrap gap-3  justify-between items-center mx-auto max-w-screen-xl p-4">
+        <div className="w-11/12 flex flex-nowrap gap-3  justify-between items-center mx-auto max-w-screen-xl p-4">
           <div className="flex  items-center gap-5">
             <Link
               to=""
@@ -45,7 +45,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex  items-center gap-5">
+          <div className="hidden lg:flex  items-center gap-5">
             {userLogin !== null ? (
               <>
                 <ul className="flex gap-3 ">
@@ -135,7 +135,7 @@ export default function Navbar() {
                 <li>
               <span
                 onClick={() => clickNav()}
-                className="cursor-pointer md:hidden"
+                className="cursor-pointer lg:hidden"
               >
                 <i className="fa-solid fa-bars text-xl hover:text-green-600 transition"></i>
               </span>
@@ -156,7 +156,7 @@ export default function Navbar() {
             
           </div>
         </div>
-        <div className={` text-center  items-center gap-5 ${clas}`}>
+        <div className={` text-center  items-center gap-5 lg:hidden ${clas}`}>
           {userLogin !== null ? (
             <>
               <ul className=" ">

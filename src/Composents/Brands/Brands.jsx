@@ -25,14 +25,14 @@ export default function Brands() {
         All Brands
       </h2>
 
-      <div className="grid mt-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="w-4/5 mx-auto grid mt-14 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {brands.map((brand) => (
           <div
             className="hover:shadow-[0px_0px_9px_#4FA74F]  duration-700 border-2"
             key={brand._id}
           >
             <img
-              className=" h-auto max-w-full rounded-lg"
+              className=" h-auto w-full rounded-lg"
               src={brand.image}
               alt={brand.name}
             />
