@@ -52,14 +52,14 @@ export default function Allorders() {
                     >
                       <th
                         scope="row"
-                        className=" font-bold px-6 py-4 text-lg text-gray-900 whitespace-nowrap dark:text-white"
+                        className=" font-bold px-3 md:px-6 py-4 text-lg text-gray-900 whitespace-nowrap dark:text-white"
                       >
                         #{data.id}
                       </th>
-                      <td className="px-6 py-4 text-lg">
+                      <td className="px-3 md:px-6 py-4 text-lg">
                         {data.totalOrderPrice} EGP
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-2 md:px-6 py-4">
                         <div>
                           <h4
                             className={` ${
@@ -78,10 +78,10 @@ export default function Allorders() {
                           isDelivered
                         </h4>
                       </td>
-                      <td className="px-6 py-4">
+                      <td className="px-5 md:px-6 py-4">
                         <Link
                           to={`/orderDetails/${data._id}`}
-                          className="font-medium text-lg px-4 py-2 rounded-lg  text-white bg-green-700 dark:text-blue-500 hover:bg-green-600 transition"
+                          className="font-medium text-lg px-3 py-2 rounded-lg  text-white bg-green-700 dark:text-blue-500 hover:bg-green-600 transition"
                         >
                           View
                         </Link>

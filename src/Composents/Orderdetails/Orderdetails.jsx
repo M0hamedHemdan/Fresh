@@ -31,9 +31,9 @@ export default function Orderdetails() {
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div className=" flex justify-around items-center py-12">
-          <div>
-            <p className="text-lg font-semibold">
+        <div className="block  w-4/5 mx-auto md:flex justify-around items-center py-12">
+          <div className="mb-4">
+            <p className="text-lg font-semibold ">
               Order ID:{" "}
               <span className=" font-normal text-green-600">
                 {foundItem?.id}
@@ -52,7 +52,7 @@ export default function Orderdetails() {
               {foundItem?.updatedAt}
             </span>
           </div>
-          <div>
+          <div className="mb-4">
             <p className="text-lg font-semibold">
               Address Info <i className="fa-solid fa-location-dot"></i>
             </p>
@@ -98,7 +98,7 @@ export default function Orderdetails() {
               <th scope="col" className="px-16 py-3">
                 <span className="sr-only">Image</span>
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="hidden md:table-header-group px-6 py-3">
                 Product
               </th>
 
@@ -118,15 +118,15 @@ export default function Orderdetails() {
                     key={data?._id}
                     className=" cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
                   >
-                    <td className="p-4">
+                    <td className="inline-block px-11 md:p-4">
                     
                       <img
                         src={data?.product.imageCover}
-                        className="w-16 md:w-32 max-w-full max-h-full"
+                        className=" w-16 md:w-32 max-w-full max-h-full"
                         alt="Apple Watch"
                       />
                     </td>
-                    <td className="px-6 text-lg py-4 font-semibold text-gray-900 dark:text-white">
+                    <td className="inline-block  px-6 text-lg pb-2  md:py-4 font-semibold text-gray-900 dark:text-white">
                       {data?.product?.title}
                     </td>
 
