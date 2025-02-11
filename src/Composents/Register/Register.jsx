@@ -88,7 +88,7 @@ export default function Register() {
       <h2 className='font-bold text-2xl text-center my-4 text-emerald-700'>
         Register Now
       </h2>
-      <form onSubmit={formik.handleSubmit} className="max-w-md mx-auto">
+      <form onSubmit={formik.handleSubmit} className="w-4/5 max-w-md mx-auto">
         <div className="relative z-0 w-full mb-5 group">
             <input 
               type="text" 
@@ -208,11 +208,11 @@ export default function Register() {
             </div>):null
             }
         </div>
-        <div className='flex gap-4 items-center'>
+        <div className='block md:flex gap-4 items-center'>
 
         <button
           type="submit" 
-          className="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
+          className="mb-3 text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
           >
             {
               isLoading ? <i className='fas fa-spinner fa-spin px-4'></i>:"Register"
