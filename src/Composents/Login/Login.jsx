@@ -136,7 +136,7 @@ export default function Login() {
           className="mb-3  text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
           >
             {
-              isLoading ? <i className='fas fa-spinner fa-spin px-4'></i>:"Register"
+              isLoading ? <i className='fas fa-spinner fa-spin px-4'></i>:"Login"
             }
           </button>
 

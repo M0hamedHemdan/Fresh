@@ -118,7 +118,7 @@ export default function Orderdetails() {
                     key={data?._id}
                     className=" cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
                   >
-                    <td className="inline-block px-11 md:p-4">
+                    <td className="inline-block md:table-cell px-11 md:p-4">
                     
                       <img
                         src={data?.product.imageCover}
@@ -126,7 +126,7 @@ export default function Orderdetails() {
                         alt="Apple Watch"
                       />
                     </td>
-                    <td className="inline-block  px-6 text-lg pb-2  md:py-4 font-semibold text-gray-900 dark:text-white">
+                    <td className="inline-block md:table-cell px-6 text-lg pb-2  md:py-4 font-semibold text-gray-900 dark:text-white">
                       {data?.product?.title}
                     </td>
 
