@@ -4,7 +4,7 @@ import { CartContext } from "../../Context/CartContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function Orderdetails() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
   console.log(id);
 
@@ -98,7 +98,10 @@ export default function Orderdetails() {
               <th scope="col" className="px-16 py-3">
                 <span className="">Image</span>
               </th>
-              <th scope="col" className="hidden md:table-header-group px-6 py-3">
+              <th
+                scope="col"
+                className="hidden md:table-header-group px-6 py-3"
+              >
                 Product
               </th>
 
@@ -113,31 +116,33 @@ export default function Orderdetails() {
           <tbody>
             {foundItem?.cartItems?.map((data) => (
               <>
-             
-               <tr onClick={()=>navigate(`/productdetails/${data?.product.id}/${data?.product.category.name}`)}
-                    key={data?._id}
-                    className=" cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
-                  >
-                    <td className="inline-block md:table-cell px-11 md:p-4">
-                    
-                      <img
-                        src={data?.product.imageCover}
-                        className=" w-16 md:w-32 max-w-full max-h-full"
-                        alt="Apple Watch"
-                      />
-                    </td>
-                    <td className="inline-block md:table-cell px-6 text-lg pb-2  md:py-4 font-semibold text-gray-900 dark:text-white">
-                      {data?.product?.title}
-                    </td>
+                <tr
+                  onClick={() =>
+                    navigate(
+                      `/productdetails/${data?.product.id}/${data?.product.category.name}`
+                    )
+                  }
+                  key={data?._id}
+                  className=" cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+                >
+                  <td className="inline-block md:table-cell px-11 md:p-4">
+                    <img
+                      src={data?.product.imageCover}
+                      className=" w-16 md:w-32 max-w-full max-h-full"
+                      alt="Apple Watch"
+                    />
+                  </td>
+                  <td className="inline-block md:table-cell px-6 text-lg pb-2  md:py-4 font-semibold text-gray-900 dark:text-white">
+                    {data?.product?.title}
+                  </td>
 
-                    <td className="px-6 text-lg py-4 font-semibold text-gray-900 dark:text-white">
-                      {data?.price}
-                    </td>
-                    <td className="px-6 text-lg py-4">
-                      <span>{data?.count}</span>
-                    </td>
-                  </tr>
-                
+                  <td className="px-6 text-lg py-4 font-semibold text-gray-900 dark:text-white">
+                    {data?.price}
+                  </td>
+                  <td className="px-6 text-lg py-4">
+                    <span>{data?.count}</span>
+                  </td>
+                </tr>
               </>
             ))}
           </tbody>

@@ -15,7 +15,7 @@ export default function Checkout() {
       city: "",
     },
     onSubmit: () =>
-      handleCheckout(cartId, `http://localhost:5173`), //function
+      handleCheckout(cartId, `https://fresh-sage-seven.vercel.app/allorders`), //function
   });
   async function handleCheckout(cartId, url) {
     const { data } = await checkout(cartId, url, formik.values);
