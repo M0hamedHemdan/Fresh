@@ -1,12 +1,10 @@
-
 import { useFormik } from "formik";
-import  { useContext } from "react";
+import { useContext } from "react";
 
 import { CartContext } from "../../Context/CartContext";
 
 export default function Checkout() {
-
-  const { checkout , cartId } = useContext(CartContext);
+  const { checkout, cartId } = useContext(CartContext);
 
   const formik = useFormik({
     initialValues: {
@@ -15,7 +13,7 @@ export default function Checkout() {
       city: "",
     },
     onSubmit: () =>
-      handleCheckout(cartId, `https://fresh-sage-seven.vercel.app/allorders`), //function
+      handleCheckout(cartId, `https://fresh-sage-seven.vercel.app`), //function
   });
   async function handleCheckout(cartId, url) {
     const { data } = await checkout(cartId, url, formik.values);
